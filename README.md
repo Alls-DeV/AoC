@@ -7,7 +7,7 @@ Current Progress
 
 **Problems completed**: 2 / 25
 
-| Day                       | Completed |
+| Day                       | Star |
 | ---------------------     | :-------: |
 | 1: Calorie Counting       | ⭐ ⭐ |
 | 2: Rock Paper Scissors    | ⭐ ⭐ |
