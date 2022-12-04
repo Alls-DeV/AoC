@@ -5,7 +5,7 @@ These are my [Advent of Code](https://adventofcode.com/) puzzle solutions.
 Current Progress
 --------------------
 
-**Problems completed**: 3 / 25
+**Problems completed**: 4 / 25
 
 | Day                           | Star  |
 | ------------------------------| :---: |
