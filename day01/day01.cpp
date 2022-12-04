@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
-    find and replace in the input
+    find and replace on the input
     ^$\n
     -1\n
 */
