@@ -7,11 +7,12 @@ Current Progress
 
 **Problems completed**: 3 / 25
 
-| Day                       | Star |
-| ---------------------     | :-------: |
-| 1: Calorie Counting       | ⭐ ⭐ |
-| 2: Rock Paper Scissors    | ⭐ ⭐ |
-| 3: Rucksack Reorganization| ⭐ ⭐ |
+| Day                           | Star  |
+| ------------------------------| :---: |
+| 1: Calorie Counting           | ⭐ ⭐ |
+| 2: Rock Paper Scissors        | ⭐ ⭐ |
+| 3: Rucksack Reorganization    | ⭐ ⭐ |
+| 4: Camp Cleanup               | ⭐ ⭐ |
 
 
 About Advent of Code
