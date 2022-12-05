@@ -5,13 +5,13 @@ These are my [Advent of Code](https://adventofcode.com/) puzzle solutions.
 Current Progress
 --------------------
 
-| Day                           | Star  |
+| Problem                       | Star  |
 | ------------------------------| :---: |
-| 1: Calorie Counting           | ⭐ ⭐ |
-| 2: Rock Paper Scissors        | ⭐ ⭐ |
-| 3: Rucksack Reorganization    | ⭐ ⭐ |
-| 4: Camp Cleanup               | ⭐ ⭐ |
-| 5: Supply Stacks               | ⭐ ⭐ |
+| Calorie Counting              | ⭐ ⭐ |
+| Rock Paper Scissors           | ⭐ ⭐ |
+| Rucksack Reorganization       | ⭐ ⭐ |
+| Camp Cleanup                  | ⭐ ⭐ |
+| Supply Stacks                 | ⭐ ⭐ |
 
 
 About Advent of Code
