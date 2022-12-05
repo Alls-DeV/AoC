@@ -5,7 +5,7 @@ void solution1() {
     int ans = 0;
 
     while (true) {
-         vector<int> v(4);
+        vector<int> v(4);
         for (auto &i : v) cin >> i;
         if (v[0] == -1) break;
         if (v[0] <= v[2] && v[3] <= v[1] ||
