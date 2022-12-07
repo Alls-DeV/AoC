@@ -12,6 +12,7 @@ Current Progress
 | Rucksack Reorganization       | ⭐ ⭐ |
 | Camp Cleanup                  | ⭐ ⭐ |
 | Supply Stacks                 | ⭐ ⭐ |
+| Tuning Trouble                | ⭐ ⭐ |
 
 
 About Advent of Code
