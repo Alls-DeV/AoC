@@ -7,8 +7,6 @@ void solution1() {
     map<string, int> dimension;
 
     while (getline(cin, s)) {
-        if ("-1" == s)
-            break;
         if ("cd" == s.substr(0, 2)) {
             if (".." == s.substr(3))
                 position.pop_back();
@@ -45,8 +43,6 @@ void solution2() {
     map<string, int> dimension;
 
     while (getline(cin, s)) {
-        if ("-1" == s)
-            break;
         if ("cd" == s.substr(0, 2)) {
             if (".." == s.substr(3))
                 position.pop_back();
