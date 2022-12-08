@@ -16,21 +16,17 @@ void solution1() {
     }
 
     int ans = 0;
-
+    vector<pair<int, int>> dirs = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     for (int i = 0; i < graph.size(); i++) {
         for (int j = 0; j < graph[i].size(); j++) {
             bool visible = false;
             for (int k = 0; k < 4; k++) {
-                int y = i, x = j;
-                do {
-                    switch (k) {
-                        case 0: y--; break;
-                        case 1: x--; break;
-                        case 2: y++; break;
-                        case 3: x++; break;
-                    }
-                } while (legal(y, x) && graph[y][x] < graph[i][j]);
-                visible |= !legal(y, x);
+                int tmp = 1;
+                while (legal(i + tmp*dirs[k].first, j + tmp*dirs[k].second) &&
+                    graph[i + tmp*dirs[k].first][j + tmp*dirs[k].second] < graph[i][j])
+                    tmp++;
+
+                visible |= !legal(i + tmp*dirs[k].first, j + tmp*dirs[k].second);
             }
             if (visible)
                 ans++;
@@ -56,23 +52,20 @@ void solution2() {
                 graph[i][j] = 10;
     
     int ans = 0;
-
+    vector<pair<int, int>> dirs = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     for (int i = 1; i < graph.size() - 1; i++) {
         for (int j = 1; j < graph[i].size() - 1; j++) {
-            int tmp = 1;
+            int trees = 1;
+
             for (int k = 0; k < 4; k++) {
-                int y = i, x = j;
-                do {
-                    switch (k) {
-                        case 0: y--; break;
-                        case 1: x--; break;
-                        case 2: y++; break;
-                        case 3: x++; break;
-                    }
-                } while (graph[y][x] < graph[i][j]);
-                tmp *= abs(y - i) + abs(x - j);
+                int tmp = 1;
+                while (graph[i + tmp*dirs[k].first][j + tmp*dirs[k].second] < graph[i][j])
+                    tmp++;
+
+                trees *= abs(tmp*dirs[k].first) + abs(tmp*dirs[k].second);
             }
-            ans = max(ans, tmp);
+
+            ans = max(ans, trees);
         }
     }
 
@@ -80,6 +73,6 @@ void solution2() {
 }
 
 int main() {
-    // solution1();
-    solution2();
+    solution1();
+    // solution2();
 }
