@@ -15,6 +15,7 @@ Current Progress
 | Tuning Trouble                | ⭐ ⭐ |
 | No Space Left On Device       | ⭐ ⭐ |
 | Treetop Tree House            | ⭐ ⭐ |
+| Rope Bridge                   | ⭐ ⭐ |
 
 About Advent of Code
 --------------------
