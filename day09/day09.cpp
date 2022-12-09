@@ -1,14 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int dimension = 5000;
 
 void solution1() {
-    vector<vector<bool>> visited(dimension, vector<bool>(dimension, false));
-    vector<pair<int, int>> nodes(10, {dimension/2, dimension/2});
     pair<int, int> head_position, tail_position;
-    head_position = tail_position = {dimension/2, dimension/2};
-    visited[dimension/2][dimension/2] = true;
-    visited[dimension/2][dimension/2] = true;
+    head_position = tail_position = {0, 0};
+    set<pair<int, int>> visited{tail_position};
 
     string s;
     while (getline(cin, s)) {
@@ -24,39 +20,33 @@ void solution1() {
             else
                 head_position.second--;
 
-            int diff = 1e9;
+            int distance = 1e9;
             pair<int, int> movement;
             for (int a = -1; a <= 1; a++) {
                 for (int b = -1; b <= 1; b++) {
-                    if (abs(tail_position.first + a - head_position.first) + abs(tail_position.second + b - head_position.second) < diff) {
-                        diff = abs(tail_position.first + a - head_position.first) + abs(tail_position.second + b - head_position.second);
+                    int diff_y = abs(tail_position.first + a - head_position.first);
+                    int diff_x = abs(tail_position.second + b - head_position.second);
+
+                    if (diff_y + diff_x < distance) {
+                        distance = diff_y + diff_x;
                         movement = {a, b};
                     }
                 }
             }
-
-            if (diff == 0)
+            if (distance == 0)
                 continue;
-
             tail_position.first += movement.first;
             tail_position.second += movement.second;
-            visited[tail_position.first][tail_position.second] = true;
+            visited.insert(tail_position);
         }
     }
 
-    int ans = 0;
-
-    for (int i = 0; i < dimension; i++)
-        for (int j = 0; j < dimension; j++)
-            ans += visited[i][j];
-
-    cout << ans << endl;
+    cout << visited.size() << endl;
 }
 
 void solution2() {
-    vector<vector<bool>> visited(dimension, vector<bool>(dimension, false));
-    vector<pair<int, int>> nodes(10, {dimension/2, dimension/2});
-    visited[dimension/2][dimension/2] = true;
+    vector<pair<int, int>> nodes(10, {0, 0});
+    set<pair<int, int>> visited{nodes[9]};
 
     string s;
     while (getline(cin, s)) {
@@ -73,32 +63,29 @@ void solution2() {
                 nodes[0].second--;
 
             for (int i = 1; i < 10; i++) {
-                int diff = 1e9;
+                int distance = 1e9;
                 pair<int, int> movement;
                 for (int a = -1; a <= 1; a++) {
                     for (int b = -1; b <= 1; b++) {
-                        if (abs(nodes[i].first + a - nodes[i - 1].first) + abs(nodes[i].second + b - nodes[i - 1].second) < diff) {
-                            diff = abs(nodes[i].first + a - nodes[i - 1].first) + abs(nodes[i].second + b - nodes[i - 1].second);
+                        int diff_y = abs(nodes[i].first + a - nodes[i - 1].first);
+                        int diff_x = abs(nodes[i].second + b - nodes[i - 1].second);
+
+                        if (diff_y + diff_x < distance) {
+                            distance = diff_y + diff_x;
                             movement = {a, b};
                         }
                     }
                 }
-                if (diff == 0)
+                if (distance == 0)
                     continue;
                 nodes[i].first += movement.first;
                 nodes[i].second += movement.second;
             }
-            visited[nodes[9].first][nodes[9].second] = true;
+            visited.insert(nodes[9]);
         }
     }
 
-    int ans = 0;
-
-    for (int i = 0; i < dimension; i++)
-        for (int j = 0; j < dimension; j++)
-            ans += visited[i][j];
-
-    cout << ans << endl;
+    cout << visited.size() << endl;
 }
  
 int main() {
