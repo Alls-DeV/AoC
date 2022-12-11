@@ -16,6 +16,7 @@ Current Progress
 | No Space Left On Device       | ⭐ ⭐ |
 | Treetop Tree House            | ⭐ ⭐ |
 | Rope Bridge                   | ⭐ ⭐ |
+| Cathode-Ray Tube              | ⭐ ⭐ |
 
 About Advent of Code
 --------------------
