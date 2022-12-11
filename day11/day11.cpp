@@ -22,6 +22,8 @@ void solution() {
     vector<pair<char, long long>> operations;
     vector<long long> divisible;
     vector<pair<int, int>> choices;
+
+    // input
     string line;
     while (getline(cin, line)) {
         // starting items
@@ -78,9 +80,9 @@ void solution() {
                 long long new_item;
 
                 if (operations[i].first == '+')
-                    new_item = item%lcm + (operations[i].second == -1 ? item : operations[i].second)%lcm;
+                    new_item = (item%lcm + (operations[i].second == -1 ? item : operations[i].second)%lcm)%lcm;
                 else
-                    new_item = item%lcm * (operations[i].second == -1 ? item : operations[i].second)%lcm;
+                    new_item = (item%lcm * (operations[i].second == -1 ? item : operations[i].second)%lcm)%lcm;
                 
                 // comment next line if second part
                 // new_item /= 3;
