@@ -19,6 +19,8 @@ Current Progress
 | Cathode-Ray Tube              | ⭐ ⭐ |
 | Monkey in the Middle          | ⭐ ⭐ |
 | Hill Climbing Algorithm       | ⭐ ⭐ |
+| Distress Signal               | ⭐ ⭐ |
+| Regolith Reservoir            | ⭐ ⭐ |
 
 About Advent of Code
 --------------------
