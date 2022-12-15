@@ -21,6 +21,7 @@ Current Progress
 | Hill Climbing Algorithm       | ⭐ ⭐ |
 | Distress Signal               | ⭐ ⭐ |
 | Regolith Reservoir            | ⭐ ⭐ |
+| Beacon Exclusion Zone         | ⭐ ⭐ |
 
 About Advent of Code
 --------------------
