@@ -5,44 +5,6 @@
     #define dbg(...)
 #endif
 using namespace std;
-/*
-
-index: 0, 5, 10
-####
-
-index: 1, 6, 12
-.#.
-###
-.#.
-   
-..#
-..#
-###
-
-#
-#
-#
-#
-
-##
-##
-
-*/
-
-// pair of (x, y)
-
-void f (set<pair<int, int>> stones) {
-    int min_x = 0;
-    int max_x = 6;
-    int min_y = 1;
-    int max_y = 20;
-    for (int y = max_y; y >= min_y; y--) {
-        for (int x = min_x; x <= max_x; x++)
-            cout << (stones.find({x, y}) != stones.end() ? '#' : '.');
-        cout << '\n';
-    }
-    cout << "----------------------------------\n";
-}
 
 set<pair<int, int>> get_coordinates (int max_height, int piece) {
     set<pair<int, int>> coordinates;
@@ -51,8 +13,7 @@ set<pair<int, int>> get_coordinates (int max_height, int piece) {
     vector<pair<int, int>> cross_movements = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     vector<pair<int, int>> square_movements = {{0, 0}, {1, 0}, {0, -1}, {1, -1}};
 
-    switch (piece%5)
-    {
+    switch (piece) {
     case 0:
         for (int i = 2; i < 6; i++)
             coordinates.insert({i, max_height + 4});
@@ -80,30 +41,21 @@ set<pair<int, int>> get_coordinates (int max_height, int piece) {
     return coordinates;
 }
 
-struct pair_hash
-{
-    template <class T1, class T2>
-    std::size_t operator () (std::pair<T1, T2> const &pair) const
-    {
-        std::size_t h1 = std::hash<T1>()(pair.first);
-        std::size_t h2 = std::hash<T2>()(pair.second);
- 
-        return h1 ^ h2;
-    }
-};
 int main() {
     string s;
     cin >> s;
     // pair of {x, y}
-    unordered_set<pair<int, int>, pair_hash> stones;
+    set<pair<int, int>> stones;
     for (int i = 0; i < 7; i++)
         stones.insert({i, 0});
     map<char, int> direction{{'<', -1}, {'>', 1}};
-    int max_height = 0;
-    for (int piece = 0, index_direction = 0; piece < 1000000; piece++) {
-        if (piece % 100000 == 0)
-            cout << piece << endl;
-        auto coordinates = get_coordinates(max_height, piece);
+    array<long long, 7> max_heights = {0, 0, 0, 0, 0, 0, 0};
+    map<tuple<array<long long, 7>, int, int>, pair<long long, long long>> memo;
+    bool flag = false;
+    long long total_cycles = 1000000000000;
+    long long ans_part2;
+    for (long long piece = 0, index_direction = 0; piece < total_cycles; piece++) {
+        auto coordinates = get_coordinates(*max_element(max_heights.begin(), max_heights.end()), piece%5);
         while (true) {
             set<pair<int, int>> possible_coordinates;
             set<pair<int, int>> inters;
@@ -131,11 +83,26 @@ int main() {
             else {
                 for (auto [x, y] : coordinates) {
                     stones.insert({x, y});
-                    max_height = max(max_height, y);
+                    max_heights[x] = max(max_heights[x], (long long)y);
+                }
+                if (!flag) {
+                    array<long long, 7> relative_heights = max_heights;
+                    long long tmp = *min_element(max_heights.begin(), max_heights.end());
+                    for (auto &x : relative_heights) x -= tmp;
+                    int nax = *max_element(max_heights.begin(), max_heights.end());
+                    if (memo.insert({{relative_heights, piece%5, index_direction}, {piece, nax}}).second == false && piece > 2021) {
+                        flag = true;
+                        long long height = nax - memo[{relative_heights, piece%5, index_direction}].second;
+                        long long length_cycle = piece - memo[{relative_heights, piece%5, index_direction}].first;
+                        ans_part2 = ((total_cycles - piece)/length_cycle)*(height);
+                        piece = total_cycles - (total_cycles - piece)%length_cycle;
+                    }
                 }
                 break;
             }
         }
+        if (piece == 2021)
+            cout << *max_element(max_heights.begin(), max_heights.end()) << endl;
     }
-    cout << max_height << endl;
+    cout << ans_part2 + *max_element(max_heights.begin(), max_heights.end()) << endl;
 }
