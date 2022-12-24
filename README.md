@@ -2,27 +2,6 @@
 
 These are my [Advent of Code](https://adventofcode.com/) puzzle solutions.
 
-Current Progress
---------------------
-
-| Problem                       | Star  |
-| ------------------------------| :---: |
-| Calorie Counting              | ⭐ ⭐ |
-| Rock Paper Scissors           | ⭐ ⭐ |
-| Rucksack Reorganization       | ⭐ ⭐ |
-| Camp Cleanup                  | ⭐ ⭐ |
-| Supply Stacks                 | ⭐ ⭐ |
-| Tuning Trouble                | ⭐ ⭐ |
-| No Space Left On Device       | ⭐ ⭐ |
-| Treetop Tree House            | ⭐ ⭐ |
-| Rope Bridge                   | ⭐ ⭐ |
-| Cathode-Ray Tube              | ⭐ ⭐ |
-| Monkey in the Middle          | ⭐ ⭐ |
-| Hill Climbing Algorithm       | ⭐ ⭐ |
-| Distress Signal               | ⭐ ⭐ |
-| Regolith Reservoir            | ⭐ ⭐ |
-| Beacon Exclusion Zone         | ⭐ ⭐ |
-
 About Advent of Code
 --------------------
 
